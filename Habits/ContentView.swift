@@ -18,7 +18,7 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(habits.items, id: \.self) { item in
-                    NavigationLink(destination: DetailView(habit: item)) {
+                    NavigationLink(destination: DetailView(habit: item, habits: habits)) {
                         //HStack {
                         VStack {
                             Text("\(item.name)")

@@ -22,7 +22,7 @@ struct BlueButton: ButtonStyle {
 
 struct DetailView: View {
     var habit: HabitItem
-    var habits = Habits()
+    var habits: Habits
     
     @Environment(\.dismiss) var dismiss
     
@@ -38,6 +38,7 @@ struct DetailView: View {
                 Button("Complete Habit") {
                     // Add to the completion count
                     if let index = habits.items.firstIndex(of: habit) {
+                        print(index)
                         habits.items[index] = habit
                         dismiss()
                     }
@@ -57,7 +58,5 @@ struct DetailView: View {
 }
 
 #Preview {
-    //let testHabit: HabitItem = HabitItem(name: "test", timesCompleted: 13)
-    
-    return DetailView(habit: HabitItem(name: "test", timesCompleted: 13)) //, habits: <#T##Habits#>())
+    DetailView(habit: HabitItem(name: "test", timesCompleted: 13), habits: Habits())
 }
